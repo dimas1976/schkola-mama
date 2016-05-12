@@ -1,0 +1,129 @@
+#start-wrapper {
+  position: fixed;
+  background: url(../img/bg.jpg) no-repeat top center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  #house {
+    position: relative;
+    background: url(../img/house.png) no-repeat top center;
+    width: 1200px;
+    height: 934px;
+    margin: 30px auto;
+    //border: 2px solid red;
+
+    #logo {
+      background: url(../img/logo.png) no-repeat top center;
+      width: 1149px;
+      height: 246px;
+      margin: auto;
+    }
+
+    nav {
+      position: absolute;
+      top: 437px;
+      left: 534px;
+      width: 14%;
+      //border: 2px solid red;
+
+      ul {
+        li{
+          font-family: 'Lobster', cursive;
+          font-size: 1.3rem;
+          font-weight: normal;
+          color: #fff;
+          list-style: none;
+          line-height: 1.6em;
+          letter-spacing: .1em;
+        }
+
+        li.alignment_right {
+          text-align: right;
+        }
+
+        li.offset_right {
+          margin-right:2em;
+        }
+      }
+    }
+
+    #windows_container {
+      //display: none;
+      width: 57%;
+      height: 30%;
+      //border: 2px solid black;
+      margin-top: 211px;
+      margin-left: 266px;
+      box-sizing: border-box;
+
+      span {
+        .clearfix();
+      }
+
+      #window_top_left {
+        float: left;
+        background: url(../img/windows/window_top_left.png) no-repeat top center;
+        width: 176px;
+        height: 178px;
+        margin-bottom: 10px;
+      }
+
+      #window_top_right {
+        float: right;
+        background: url(../img/windows/window_top_right.png) no-repeat top center;
+        width: 186px;
+        height: 176px;
+        margin-bottom: 10px;
+      }
+
+      #window_bottom_left {
+        float: left;
+        background: url(../img/windows/window_bottom_left.png) no-repeat top center;
+        width: 174px;
+        height: 196px;
+      }
+
+      #window_bottom_right {
+        float: right;
+        background: url(../img/windows/window_bottom_right.png) no-repeat top center;
+        width: 186px;
+        height: 186px;
+      }
+
+      .window {
+        box-sizing: border-box;
+        padding-top: 1.3em;
+        text-align: center;
+        p {
+          font-family: 'Playfair Display SC', serif;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #238e2b;
+        }
+      }
+    }
+
+    //Firefox CSS-Hack
+    @-moz-document url-prefix() {
+      #house {
+        margin-top: 2%;
+      }
+    }
+
+    //IE CSS-Hack
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      #house {
+        margin-top: 3%;
+      }
+    }
+
+    #grass {
+      background: url(../img/grass.png) no-repeat top center;
+      width: 1200px;
+      height: 96px;
+      margin-top: 84px;
+    }
+  }
+
+}
