@@ -5,6 +5,8 @@
 body {
   font-size: 100%;
   background-color: #d9dce1;
+  width: 100%;
+  height: 100%;
 }
 #start-wrapper {
   position: fixed;
@@ -117,6 +119,22 @@ body {
   height: 96px;
   margin-top: 84px;
 }
+#about_us {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+#about_us #our_target {
+  background: url(../img/about_us_teaser.jpg) no-repeat center center;
+  background-size: cover;
+  height: 37%;
+}
+.main_container {
+  position: absolute;
+  top: 100%;
+  border: 2px solid red;
+  box-sizing: border-box;
+}
 @media (min-width: 1700px) {
   #start-wrapper #house {
     width: 100%;
@@ -163,12 +181,18 @@ body {
     width: 786px;
     height: 184px;
   }
+  #start-wrapper #house nav {
+    top: 307px;
+    left: 320px;
+    width: 19%;
+  }
+  #start-wrapper #house nav ul li {
+    font-size: 1.2rem;
+  }
   #start-wrapper #house #windows_container {
-    width: 57%;
-    height: 30%;
-    margin-top: 211px;
-    margin-left: 266px;
-    box-sizing: border-box;
+    width: 73%;
+    margin-top: 157px;
+    margin-left: 99px;
   }
   #start-wrapper #house #windows_container #window_top_left {
     float: left;
@@ -193,5 +217,13 @@ body {
     background: url(../img/800px/windows/window_bottom_right.png) no-repeat top center;
     width: 149px;
     height: 152px;
+  }
+  #start-wrapper #house #windows_container .window p {
+    font-size: 1.0rem;
+  }
+  #start-wrapper #house #grass {
+    background: url(../img/800px/grass.png) no-repeat top center;
+    width: 1014px;
+    height: 80px;
   }
 }
