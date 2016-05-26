@@ -104,19 +104,6 @@
       }
     }
 
-    //Firefox CSS-Hack
-    @-moz-document url-prefix() {
-      #house {
-        margin-top: 2%;
-      }
-    }
-
-    //IE CSS-Hack
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-      #house {
-        margin-top: 3%;
-      }
-    }
 
     #grass {
       background: url(../img/1200px/grass.png) no-repeat top center;
@@ -128,18 +115,19 @@
 }
 
 #about_us-wrapper {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  .container-fluid {
+  .container {
+    background-color: #fff;
     .row {
+      h1{
+        text-align: center;
+      }
       .about_us_text;
-      background-color: #59514e;
-      #about_us_motiv {
-        background: url(../img/about_us.jpg) no-repeat center center;
-        background-size: contain;
-        //width: 455px;
-        height: 325px;
+      &:last-child {
+        iframe {
+          display: block;
+        }
+        font-style: italic;
+        font-size: 1.5rem;
       }
     }
   }
@@ -148,6 +136,8 @@
 .main_container {
   position: absolute;
   top: 100%;
-  border: 2px solid red;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  //box-sizing: border-box;
+  background-color: #fff;
 }

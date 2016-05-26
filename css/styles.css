@@ -8,9 +8,6 @@ body {
   width: 100%;
   height: 100%;
 }
-#about_us-wrapper .container-fluid .row .col-sm-4 {
-  padding-left: 0;
-}
 #start-wrapper {
   position: fixed;
   background: url(../img/bg.jpg) no-repeat top center;
@@ -106,50 +103,53 @@ body {
   font-weight: 700;
   color: #238e2b;
 }
-@-moz-document url-prefix() {
-  #start-wrapper #house #house {
-    margin-top: 2%;
-  }
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  #start-wrapper #house #house {
-    margin-top: 3%;
-  }
-}
 #start-wrapper #house #grass {
   background: url(../img/1200px/grass.png) no-repeat top center;
   width: 1200px;
   height: 96px;
   margin-top: 84px;
 }
-#about_us-wrapper {
-  width: 100%;
-  height: 100%;
+#about_us-wrapper .container {
   background-color: #fff;
 }
-#about_us-wrapper .container-fluid .row {
+#about_us-wrapper .container .row {
   font-family: Verdana, Arial, sans-serif;
   font-weight: normal;
   font-size: 1.7rem;
-  color: #fff;
-  background-color: #59514e;
+  color: #000;
 }
-#about_us-wrapper .container-fluid .row #about_us_motiv {
-  background: url(../img/about_us.jpg) no-repeat center center;
-  background-size: contain;
-  height: 325px;
+#about_us-wrapper .container .row h1 {
+  text-align: center;
+}
+#about_us-wrapper .container .row:last-child {
+  font-style: italic;
+  font-size: 1.5rem;
+}
+#about_us-wrapper .container .row:last-child iframe {
+  display: block;
 }
 .main_container {
   position: absolute;
   top: 100%;
-  border: 2px solid red;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
 }
 .about_us_text {
   font-family: Verdana, Arial, sans-serif;
   font-weight: normal;
   font-size: 1.7rem;
-  color: #fff;
+  color: #000;
+}
+@-moz-document url-prefix() {
+  #house {
+    margin-top: 2%;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #house {
+    margin-top: 3%;
+  }
 }
 @media (min-width: 1700px) {
   #start-wrapper #house {
@@ -241,5 +241,10 @@ body {
     background: url(../img/800px/grass.png) no-repeat top center;
     width: 1014px;
     height: 80px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1025px;
   }
 }
