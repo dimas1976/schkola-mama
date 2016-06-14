@@ -106,8 +106,18 @@ body {
 #start-wrapper #house #grasshopper {
   position: absolute;
   top: 87%;
-  left: 862px;
-  width: 189px;
+  left: 959px;
+  width: 156px;
+}
+#start-wrapper #house #grasshopper #eyes {
+  opacity: 0;
+  animation: grasshopperEyesBlink 6s infinite ;
+  position: absolute;
+  top: 40%;
+  left: 51px;
+}
+#start-wrapper #house #grasshopper #eyes #right_eye {
+  margin-left: 2px;
 }
 #start-wrapper #house #grass {
   position: absolute;
@@ -148,6 +158,42 @@ body {
   font-weight: normal;
   font-size: 1.7rem;
   color: #000;
+}
+@-webkit-keyframes grasshopperEyesBlink {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes grasshopperEyesBlink {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @-moz-document url-prefix() {
   #house {
