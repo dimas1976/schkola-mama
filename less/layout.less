@@ -6,6 +6,40 @@
   width: 100%;
   height: 100%;
 
+  #overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &:hover #butterfly {
+      top: 670px ;
+      opacity: 1;
+    }
+  }
+
+  #butterfly {
+    width: 100%;
+    position: absolute;
+    top: 700px;
+    z-index: 10;
+    opacity: 0;
+    transition: all 1s ease ;
+
+    img {
+      position: absolute;
+      width: 250px;
+      &:first-child {
+        left: 100px;
+      }
+
+      &:last-child {
+        right: 100px;
+      }
+    }
+
+  }
   #house {
     position: relative;
     background: url(../img/1200px/house.png) no-repeat top center;
@@ -107,8 +141,8 @@
     #grasshopper {
       position: absolute;
       top: 87%;
-      left: 959px;
-      width: 156px;
+      right: 100px;
+
       #eyes{
         opacity: 0;
         animation: grasshopperEyesBlink 6s infinite ;

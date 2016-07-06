@@ -15,6 +15,35 @@ body {
   width: 100%;
   height: 100%;
 }
+#start-wrapper #overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#start-wrapper #overlay:hover #butterfly {
+  top: 670px ;
+  opacity: 1;
+}
+#start-wrapper #butterfly {
+  width: 100%;
+  position: absolute;
+  top: 700px;
+  z-index: 10;
+  opacity: 0;
+  transition: all 1s ease ;
+}
+#start-wrapper #butterfly img {
+  position: absolute;
+  width: 250px;
+}
+#start-wrapper #butterfly img:first-child {
+  left: 100px;
+}
+#start-wrapper #butterfly img:last-child {
+  right: 100px;
+}
 #start-wrapper #house {
   position: relative;
   background: url(../img/1200px/house.png) no-repeat top center;
@@ -106,8 +135,7 @@ body {
 #start-wrapper #house #grasshopper {
   position: absolute;
   top: 87%;
-  left: 959px;
-  width: 156px;
+  right: 100px;
 }
 #start-wrapper #house #grasshopper #eyes {
   opacity: 0;
@@ -239,6 +267,14 @@ body {
     background-size: contain;
   }
 }
+@media (min-width: 1200px) {
+  .container {
+    width: 1025px;
+  }
+  #grass {
+    top: 80%;
+  }
+}
 @media (min-width: 800px) and (max-width: 1100px) {
   #start-wrapper #house {
     background: url(../img/800px/house.png) no-repeat top center;
@@ -295,10 +331,6 @@ body {
     background: url(../img/800px/grass.png) no-repeat top center;
     width: 1014px;
     height: 80px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1025px;
+    top: 78%;
   }
 }
