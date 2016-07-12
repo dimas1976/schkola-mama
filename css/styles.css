@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+html {
+  position: relative;
+  height: 100%;
+}
 body {
   font-size: 100%;
   background-color: #d9dce1;
@@ -14,6 +18,7 @@ body {
   background-size: cover;
   width: 100%;
   height: 100%;
+  top: 0%;
 }
 #start-wrapper #overlay {
   width: 100%;
@@ -23,7 +28,7 @@ body {
   left: 0;
 }
 #start-wrapper #overlay:hover #butterfly {
-  top: 670px ;
+  top: 670px;
   opacity: 1;
 }
 #start-wrapper #butterfly {
@@ -32,7 +37,7 @@ body {
   top: 700px;
   z-index: 10;
   opacity: 0;
-  transition: all 1s ease ;
+  transition: all 1s ease;
 }
 #start-wrapper #butterfly img {
   position: absolute;
@@ -139,7 +144,7 @@ body {
 }
 #start-wrapper #house #grasshopper #eyes {
   opacity: 0;
-  animation: grasshopperEyesBlink 6s infinite ;
+  animation: grasshopperEyesBlink 6s infinite;
   position: absolute;
   top: 40%;
   left: 51px;
@@ -155,8 +160,14 @@ body {
   height: 96px;
   margin-top: 84px;
 }
-#about_us-wrapper .container {
+.main_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
+}
+#about_us-wrapper {
+  margin-top: 100%;
 }
 #about_us-wrapper .container .row {
   font-family: Verdana, Arial, sans-serif;
@@ -174,12 +185,32 @@ body {
 #about_us-wrapper .container .row:last-child iframe {
   display: block;
 }
-.main_container {
-  position: absolute;
-  top: 100%;
+#gallery {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 600px;
+  margin-top: 0;
+  overflow: hidden;
   background-color: #fff;
+}
+#gallery table {
+  position: relative;
+  left: 0;
+  width: 2000px;
+}
+#gallery table tr {
+  width: 300px;
+  display: inline-block;
+}
+#gallery table tr td {
+  width: 300px;
+  height: 210px;
+  display: block;
+  border: 1px solid white;
+  overflow: hidden;
+}
+#gallery table tr td img {
+  width: 310px;
 }
 .about_us_text {
   font-family: Verdana, Arial, sans-serif;
