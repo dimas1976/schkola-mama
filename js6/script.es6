@@ -1,7 +1,8 @@
 (() => {
     let imgArr = new Array();
     let threeImgArr = new Array();
-    let selectedGalleryTable = document.querySelector('table');
+    let origTable = document.querySelector('table');
+
 
     let galleryDirectoryPath = 'img/gallery/';
 
@@ -14,6 +15,7 @@
                 });
                 imgArr.pop();
                 extractThreeImages();
+                cloneTable();
                 setGalleryWidth();
             }
         };
@@ -31,7 +33,7 @@
                 trElement.appendChild(tdElement);
             });
 
-            selectedGalleryTable.appendChild(trElement);
+            origTable.appendChild(trElement);
             extractThreeImages();
         }
     };
@@ -47,10 +49,25 @@
         return tdElement;
     }
 
+    const cloneTable = ()=> {
+        let clonedTable  = origTable.cloneNode(true);
+        clonedTable.className = 'cloned-table';
+        document.querySelector('#gallery').appendChild(clonedTable);
+    }
+
     const setGalleryWidth = ()=> {
         let tdElement = document.querySelector('table tr td');
         let tdWidth = window.getComputedStyle(tdElement,null).getPropertyValue('width');
-        selectedGalleryTable.style.width  = (selectedGalleryTable.childElementCount * parseInt(tdWidth))+ 'px';
+        let tableWidthValue = origTable.childElementCount * parseInt(tdWidth);
+        origTable.style.width  = tableWidthValue + 'px';
+
+        slideGallery(tableWidthValue);
+    }
+
+    const slideGallery = (tableWidthValue)=> {
+        let bodyEl = document.querySelector('body');
+        let bodyWidth = window.getComputedStyle(bodyEl, null).getPropertyValue('width');
+        origTable.style.left = -tableWidthValue + parseInt(bodyWidth) + 'px' ;
     }
 
     initGallery();
