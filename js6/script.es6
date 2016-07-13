@@ -5,16 +5,16 @@
 
     let galleryDirectoryPath = 'img/gallery/';
 
-    const createGalleryImagesNamesArray = ()=> {
+    const initGallery = ()=> {
         let ajax = new XMLHttpRequest();
         ajax.onreadystatechange = ()=> {
             if (ajax.readyState == 4 && ajax.status == 200) {
-                console.log("ResponseText: " + ajax.responseText);
                 JSON.parse(ajax.responseText, (k, v)=> {
                     imgArr.push(v);
                 });
                 imgArr.pop();
                 extractThreeImages();
+                setGalleryWidth();
             }
         };
         ajax.open('GET', 'php/imagesholder.php', true);
@@ -36,15 +36,23 @@
         }
     };
 
-    let createImagesColumn = (imagePfad)=> {
+    const createImagesColumn = (imagePfad)=> {
         let tdElement = document.createElement('td');
         let imageElement = document.createElement('img');
         imageElement.setAttribute('src', galleryDirectoryPath + imagePfad);
         imageElement.setAttribute('alt', "???? ?? ???????");
+        //imageElement.className = 'img-responsive';
         tdElement.appendChild(imageElement);
 
         return tdElement;
     }
-    createGalleryImagesNamesArray();
+
+    const setGalleryWidth = ()=> {
+        let tdElement = document.querySelector('table tr td');
+        let tdWidth = window.getComputedStyle(tdElement,null).getPropertyValue('width');
+        selectedGalleryTable.style.width  = (selectedGalleryTable.childElementCount * parseInt(tdWidth))+ 'px';
+    }
+
+    initGallery();
 
 })();
