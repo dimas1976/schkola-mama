@@ -203,12 +203,14 @@
   margin-top: 0;
   overflow: hidden;
   background-color: #fff;
-  table{
+
+  #original-table, #cloned-table  {
     position: absolute;
-    left: 0;
-    transition: left 3s;
+    transform: translateZ(0);//this property activates GPU acceleration
+    -ms-transform: translateZ(0);//this property activates GPU acceleration
+    -webkit-transform: translateZ(0);//this property activates GPU acceleration
     tr {
-      width: 269px;
+      width: 270px;
       display: inline-block;
       vertical-align: top;
 
@@ -224,14 +226,8 @@
         }
       }
     }
-
   }
 
-  .cloned-table {
-    position: absolute;
-    transition: left 3s;
-    left: 100%;
-  }
 }
 
 
