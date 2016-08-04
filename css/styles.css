@@ -204,6 +204,7 @@ body {
 #gallery #original-table,
 #gallery #cloned-table {
   position: absolute;
+  float: left;
   transform: translateZ(0);
   -ms-transform: translateZ(0);
   -webkit-transform: translateZ(0);

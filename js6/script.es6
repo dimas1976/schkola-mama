@@ -77,16 +77,10 @@
         trWidth = window.getComputedStyle(trElement, null).getPropertyValue('width');
         tableWidthValue = originalTable.childElementCount * parseInt(trWidth);
         originalTable.style.width = tableWidthValue + 'px';
-        // slideGallery();
     }
 
     const addAnimationEvent = ()=> {
-        document.querySelector('#original-table').addEventListener('webkitAnimationIteration', (event)=> {
-            repeatAnimation(event.target);
-        });
-        document.querySelector('#cloned-table').addEventListener('animationiteration', (event)=> {
-            repeatAnimation(event.target);
-        });
+        document.querySelector('#original-table').addEventListener('animationiteration', repeatAnimation);
     }
 
     const setAnimationRules = ()=> {
@@ -94,65 +88,24 @@
 
         let originalTableCSSRule = '@keyframes moveOriginalTable' +
             '{' +
-                // 'from{left:0px;}' +
-            'to{left:' + -tableWidthValue + 'px ;}' +
+                'to{left:' + -tableWidthValue + 'px ;}' +
             '}';
 
         let clonedTableCSSRule = '@keyframes moveClonedTable' +
             '{' +
-                //'from{left:' + tableWidthValue + 'px;}' +
-            'to{left:' + -tableWidthValue + 'px ;}' +
+                'to{left:' + -tableWidthValue + 'px ;}' +
             '}';
         css[0].insertRule(originalTableCSSRule, 0);
         css[0].insertRule(clonedTableCSSRule, 1);
     }
 
-    const repeatAnimation = (table)=> {
-        switch (table.id) {
-            case 'original-table':
-                originalTable.style.animationPlayState = 'paused';
-                originalTable.style.animationDuration = 80 + 's';
-                originalTable.style.animationDelay = 40 + 's';
-                originalTableAnimationFromPoint = parseInt(window.getComputedStyle(clonedTable, null).getPropertyValue('left')) + tableWidthValue;
-                originalTable.style.left = originalTableAnimationFromPoint + 'px';
-                originalTable.style.animationPlayState = 'running';
-                break;
+    const repeatAnimation = (event)=> {
 
-            case 'cloned-table':
-                clonedTableAnimationFromPoint = parseInt(window.getComputedStyle(originalTable, null).getPropertyValue('left')) + tableWidthValue;
-                clonedTable.style.left = clonedTableAnimationFromPoint + 'px';
-        }
+        originalTable.removeEventListener('animationiteration', repeatAnimation);
+        originalTable.style.left = tableWidthValue + 'px';
+        originalTable.style.animationDuration = 80 + 's';
+        originalTable.style.animationDelay = 40 + 's';
     }
-
-
-    /* const slideGallery = ()=> {
-     tableElement.style.left = -tableWidthValue + bodyWidth + 'px';
-     intervalID = setInterval(calculateColumnNumberOffset, 1000);
-     }
-
-
-     const calculateColumnNumberOffset = ()=> {
-     //clearInterval(intervalID);
-     let tbPosition = window.getComputedStyle(originalTable, null).getPropertyValue('left');
-     let positivePosition = Math.abs(parseInt(tbPosition));
-     let cuttedColumnNumber = Math.floor(positivePosition / parseInt(trWidth));
-     console.log('Anzahl der Spalten' + cuttedColumnNumber);
-
-     cutTable(cuttedColumnNumber);
-     }
-     const cutTable = (cuttedColumnNumber)=> {
-     for(let i = 0; i <= cuttedColumnNumber ; i++){
-     //console.log(tableElement.children.item(i));
-     let childNode = originalTable.children.item(i);
-     childNode.remove();
-     originalTable.appendChild(childNode);
-     }
-     //tableElement.style.left = -tableWidthValue + 'px';
-     }
-
-     const continueTableTransitition = ()=> {
-     tableElement.style.left = -tableWidthValue + bodyWidth + 'px';
-     }*/
 
 
 })();
