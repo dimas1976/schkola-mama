@@ -3,6 +3,7 @@
     let imgArr = [];
     let threeImgArr = [];
 
+    let imagePreviewLayer = document.querySelector('#image-preview-layer');
     let originalTable = document.querySelector('#original-table');
     let clonedTable;
     let tableWidthValue = 0;
@@ -16,7 +17,6 @@
     let galleryDirectoryPath = 'img/gallery/';
 
     window.addEventListener('load', ()=> {
-        console.log('LOAD');
         initGallery();
     });
 
@@ -33,6 +33,7 @@
                 cloneTable();
                 addAnimationEvent();
                 setAnimationRules();
+                addClickHandlersToGalleryimages();
             }
         };
         ajax.open('GET', 'php/imagesholder.php', true);
@@ -59,7 +60,7 @@
         let imageElement = document.createElement('img');
         imageElement.setAttribute('src', galleryDirectoryPath + imagePfad);
         imageElement.setAttribute('alt', "???? ?? ???????");
-        //imageElement.className = 'img-responsive';
+        imageElement.className = 'gallery-image';
         tdElement.appendChild(imageElement);
 
         return tdElement;
@@ -88,12 +89,12 @@
 
         let originalTableCSSRule = '@keyframes moveOriginalTable' +
             '{' +
-                'to{left:' + -tableWidthValue + 'px ;}' +
+            'to{left:' + -tableWidthValue + 'px ;}' +
             '}';
 
         let clonedTableCSSRule = '@keyframes moveClonedTable' +
             '{' +
-                'to{left:' + -tableWidthValue + 'px ;}' +
+            'to{left:' + -tableWidthValue + 'px ;}' +
             '}';
         css[0].insertRule(originalTableCSSRule, 0);
         css[0].insertRule(clonedTableCSSRule, 1);
@@ -107,5 +108,30 @@
         originalTable.style.animationDelay = 40 + 's';
     }
 
+    const addClickHandlersToGalleryimages = ()=> {
+        let images = document.querySelectorAll('.gallery-image');
+        for(let i = 0; i < images.length; i++){
+            images[i].addEventListener('click',imageClickHandler);
+        }
+    }
+
+    const imageClickHandler = (event)=>{
+        originalTable.style.animationPlayState = 'paused';
+        clonedTable.style.animationPlayState = 'paused';
+        imagePreviewLayer.style.display = 'block';
+        let clonedImg = event.target.cloneNode(true);
+        //clonedImg.style.transform = 'scale(0,0)';
+        imagePreviewLayer.appendChild(clonedImg);
+        imagePreviewLayer.addEventListener('click', imageLayerClickHandler);
+
+    }
+
+    const imageLayerClickHandler = ()=> {
+        console.log('layerClick');
+        imagePreviewLayer.innerHTML = '';
+        imagePreviewLayer.style.display = 'none';
+        originalTable.style.animationPlayState = 'running';
+        clonedTable.style.animationPlayState = 'running';
+    }
 
 })();
