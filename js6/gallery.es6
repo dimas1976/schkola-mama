@@ -28,7 +28,7 @@
                     imgArr.push(v);
                 });
                 imgArr.pop();
-                extractThreeImages();
+                createImagesTable();
                 setGalleryWidth();
                 cloneTable();
                 addAnimationEvent();
@@ -40,21 +40,22 @@
         ajax.send(null);
     };
 
-    const extractThreeImages = ()=> {
+    const createImagesTable = ()=> {
 
         while (imgArr.length > 0) {
             let trElement = document.createElement('tr');
-            threeImgArr = imgArr.splice(0, 3);
+            threeImgArr = imgArr.splice(0, 3);// aus dem Bilderarray 3 Bilder nehmen
             threeImgArr.forEach((imagePfad) => {
                 let tdElement = createImagesColumn(imagePfad);
                 trElement.appendChild(tdElement);
             });
 
             originalTable.appendChild(trElement);
-            extractThreeImages();
+            createImagesTable();
         }
     };
 
+/*erstellen einer Tabellenzelle mit einem Bild drinne*/
     const createImagesColumn = (imagePfad)=> {
         let tdElement = document.createElement('td');
         let imageElement = document.createElement('img');
@@ -65,25 +66,30 @@
 
         return tdElement;
     }
-
+/*
+ * Die Tabelle duplizieren und geklonte Tabelle da positioneren,
+ * wo das Original endet
+*/
     const cloneTable = ()=> {
         clonedTable = originalTable.cloneNode(true);
         clonedTable.id = 'cloned-table';
         clonedTable.style.left = tableWidthValue + 'px';
         document.querySelector('#gallery').appendChild(clonedTable);
     }
-
+/* Die Tabellebreite ermitteln */
     const setGalleryWidth = ()=> {
         let trElement = document.querySelector('table tr');
-        trWidth = window.getComputedStyle(trElement, null).getPropertyValue('width');
-        tableWidthValue = originalTable.childElementCount * parseInt(trWidth);
+        trWidth = window.getComputedStyle(trElement, null).getPropertyValue('width');//Breite der Tabellenspalte ermitteln
+        tableWidthValue = originalTable.childElementCount * parseInt(trWidth);//Anzahl der Tabellenspalten in der Tabelle ermitteln und mit Breite multiplizieren
         originalTable.style.width = tableWidthValue + 'px';
     }
 
+    /*bei jedem Animationsdurchlauf wird die Funktion "repeatAnimation" aufgerufen */
     const addAnimationEvent = ()=> {
         document.querySelector('#original-table').addEventListener('animationiteration', repeatAnimation);
     }
 
+    /* erstell für beide Taabellen AnimationsRegeln */
     const setAnimationRules = ()=> {
         let css = document.styleSheets;
 
@@ -99,9 +105,13 @@
         css[0].insertRule(originalTableCSSRule, 0);
         css[0].insertRule(clonedTableCSSRule, 1);
     }
+/*
+ * gleich nach dem ersten Durchlauf wird Listener nicht mehr gebraucht
+ * Dauer und Delay wird neu angepasst, weil Linksposition der Originaltabelle
+ * sich geändert hat
+*/
 
     const repeatAnimation = (event)=> {
-
         originalTable.removeEventListener('animationiteration', repeatAnimation);
         originalTable.style.left = tableWidthValue + 'px';
         originalTable.style.animationDuration = 80 + 's';
@@ -115,19 +125,26 @@
         }
     }
 
+/*
+ *Beim Click auf das Bild pausiert die Animation
+ * Bild Layer wird angezeigt
+ * Bild wird geklont und aufs Layer gesetzt
+ */
     const imageClickHandler = (event)=>{
         originalTable.style.animationPlayState = 'paused';
         clonedTable.style.animationPlayState = 'paused';
         imagePreviewLayer.style.display = 'block';
         let clonedImg = event.target.cloneNode(true);
-        //clonedImg.style.transform = 'scale(0,0)';
         imagePreviewLayer.appendChild(clonedImg);
         imagePreviewLayer.addEventListener('click', imageLayerClickHandler);
 
     }
-
+/*
+ * Event schließt Layer
+ * Bild wird aus dem Layer entfernt
+ * Animation läuft weiter
+ */
     const imageLayerClickHandler = ()=> {
-        console.log('layerClick');
         imagePreviewLayer.innerHTML = '';
         imagePreviewLayer.style.display = 'none';
         originalTable.style.animationPlayState = 'running';
