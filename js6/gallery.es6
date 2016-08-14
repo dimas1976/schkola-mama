@@ -1,5 +1,4 @@
 (() => {
-
     let imgArr = [];
     let threeImgArr = [];
 
@@ -16,11 +15,11 @@
 
     let galleryDirectoryPath = 'img/gallery/';
 
-    window.addEventListener('load', ()=> {
-        initGallery();
-    });
-
-    const initGallery = ()=> {
+    const setWindowLoadListener = ()=> {
+        window.addEventListener('load', windowLoadHandler);
+    }
+    
+    const windowLoadHandler = ()=> {
         let ajax = new XMLHttpRequest();
         ajax.onreadystatechange = ()=> {
             if (ajax.readyState == 4 && ajax.status == 200) {
@@ -150,5 +149,7 @@
         originalTable.style.animationPlayState = 'running';
         clonedTable.style.animationPlayState = 'running';
     }
+
+    setWindowLoadListener();
 
 })();
