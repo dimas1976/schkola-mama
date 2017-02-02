@@ -1,3 +1,6 @@
+
+//import {Preview} from './js/preview.js';
+
 (() => {
     let imgArr = [];
     let threeImgArr = [];
@@ -15,11 +18,14 @@
 
     let galleryDirectoryPath = 'img/gallery/';
 
-    const setWindowLoadListener = ()=> {
+    //let preview = new Preview();
+
+/*    const setWindowLoadListener = ()=> {
         window.addEventListener('load', windowLoadHandler);
-    }
+    }*/
     
     const windowLoadHandler = ()=> {
+        console.log('BILSER');
         let ajax = new XMLHttpRequest();
         ajax.onreadystatechange = ()=> {
             if (ajax.readyState == 4 && ajax.status == 200) {
@@ -103,6 +109,8 @@
             '}';
         css[0].insertRule(originalTableCSSRule, 0);
         css[0].insertRule(clonedTableCSSRule, 1);
+
+        //preview.finishPreview();
     }
 /*
  * gleich nach dem ersten Durchlauf wird Listener nicht mehr gebraucht
@@ -150,6 +158,7 @@
         clonedTable.style.animationPlayState = 'running';
     }
 
-    setWindowLoadListener();
+    //setWindowLoadListener();
+    windowLoadHandler();
 
 })();
