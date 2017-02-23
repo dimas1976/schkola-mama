@@ -68,6 +68,7 @@
         clonedTable.style.left = tableWidthValue + 'px';
         document.querySelector('#gallery').appendChild(clonedTable);
     }
+
 /* Die Tabellebreite ermitteln */
     const setGalleryWidth = ()=> {
         let trElement = document.querySelector('table tr');
