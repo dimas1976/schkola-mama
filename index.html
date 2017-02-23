@@ -7,15 +7,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
-    <link href='https://fonts.googleapis.com/css?family=Lobster|Playfair+Display+SC:700&subset=latin,cyrillic'
-          rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster|Playfair+Display+SC:700|Open+Sans+Condensed:700&subset=latin,cyrillic'
+    rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scroll.js" defer></script>
     <script src="js/script.js" defer></script>
-    <script src="js/gallery.js" defer></script>
 </head>
 <body>
-    <section id="preview">
-        <h1>ДОБРО ПОЖАЛОВАТЬ НА СТРАНИЦУ <span>ШКОЛЫ</span><span>МАМЫ</span></h1>
-    </section>
+    <section id="preloader"></section>
     <section id="start-wrapper">
         <div id="overlay">
             <div id="butterfly">
@@ -28,10 +27,9 @@
             <nav>
                 <ul>
                     <li>О НАС</li>
-                    <li class="alignment_right offset_right">УРОКИ</li>
+                    <li class="alignment_right">НОВОСТИ</li>
                     <li>ГАЛЕРЕЯ</li>
-                    <li class="alignment_right">МЕТОДИКА</li>
-                    <li>КОНТАКТ</li>
+                    <li class="alignment_right">КОНТАКТ</li>
                 </ul>
             </nav>
             <div id="windows_container">
@@ -53,59 +51,49 @@
             <div id="grass"></div>
         </div>
     </section>
-    <section id="second-menu"></section>
+    <section id="second-menu">
+        <li>
+            <ul>УРОКИ</ul>
+            <ul>О НАС</ul>
+            <ul><a href="#news">НОВОСТИ</a></ul>
+            <ul>ГАЛЕРЕЯ</ul>
+            <ul>КОНТАКТ</ul>
+        </li>
+    </section>
     <section id="about_us-wrapper" class="main-container">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 description">
                     <h1>Одна из важнейших задач "Школы мамы" - помочь родителям и малышам найти общее дело, установить
-                        контакт ребёнок - родитель - ребёнок.</h1>
-
-                    <p>Нас часто спрашивают: зачем?
-                        Но разве не интересно вам, родителям, видеть, как ребёнок впитывает новые знания и как он их
-                        использует?
-                        Скоро вы отведёте ребёнка в школу и не узнаете и половины того, что там с ним происходит.
-                        А в нашей школе можно наблюдать, корректировать, поддерживать ребенка, участвовать в играх и
-                        обучении.
-                        Да нелегко нам, родителям, сидеть с ребёнком и повторять хорошо известные вещи, но зато как
-                        здорово, когда видишь радость, улыбку, блеск в глазах своего ребёнка, огромное желание узнавать
-                        новое и учиться.
-                        Всё это и происходит на наших уроках развития речи, развития мышления и музыкальных
-                        занятиях.</p>
+                        контакт ребёнок - родитель - ребёнок.
+                    </h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <img src="img/anna.jpg" class="img-responsive" alt="Учитель Анна Бурдина">
-
-                    <p>
-                        Анна Бурдина (окончила С.-Петербургский университет им. Герцена, опыт работы с детьми
-                        более 16 лет) проводит занятия по развитию речи на основе художественного слова и изображения.
-                        Дети слушают сказки, истории и смотрят картинки, иллюстрирующие содержание рассказ
-                        ов, сами лепят и рисуют, "комментируя" таким образом тексты и вместе со своими мамами, папами
-                        произносят слова, предложения, передающие смысл услышанного и увиденного. А кто посмелей, может
-                        и сказку пересказать.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="img/vika.jpg" class="img-responsive" alt="Учитель Виктория Аронова">
-
-                    <p>
-                        Виктория Аронова (окончила Луганский педагогический институт, продолжает образование в
-                        Гамбурском университете, опыт работы с детьми более 15 лет) проводит игры,способствующие
-                        развитию логического и образного, ассоциативного мышления. При помощи специальных пособий и
-                        заданий на уроке формируются элементарные математические представления, закрепляется понятие о
-                        цвете, форме и величине.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <iframe width="312" height="201" src="https://www.youtube.com/embed/OrpoZ8U3-D4" frameborder="0"
+                <div class="col-md-12">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/OrpoZ8U3-D4" frameborder="0"
                             allowfullscreen></iframe>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aspernatur cum
-                        dolores hic, inventore iste libero maiores nemo neque nobis odio odit possimus quaerat saepe
-                        sapiente sed soluta vitae voluptatibus!
-                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="news" class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h1>НОВОСТИ</h1>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <li class="news-list">
+                                <ul>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</ul>
+                                <ul>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</ul>
+                                <ul>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</ul>
+                                <ul>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</ul>
+                            </li>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,6 +104,40 @@
         <div id="image-preview-layer">
 
         </div>
+    </section>
+    <section id="contact" class="main-container">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>КОНТАКТ</h1>
+                </div>
+            </div>
+            <div id="form">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="ИМЯ">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="surname" placeholder="ФАМИЛИЯ">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="ВАШ E-MAIL">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-7">
+                            <textarea class="form-control" rows="18" placeholder="ВАШЕ СООБЩЕНИЕ:"></textarea>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-sm-hidden col-md-5">&nbsp;</div>
+                            <div class="col-sm-12 col-md-7">
+                                <button type="submit" class="btn btn-default">ОТПРАВИТЬ</button>
+                            </div>
+                        </div>
+                </form>
+             </div>
     </section>
 </body>
 </html>

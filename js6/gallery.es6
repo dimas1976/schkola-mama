@@ -1,7 +1,5 @@
 
-//import {Preview} from './js/preview.js';
 
-(() => {
     let imgArr = [];
     let threeImgArr = [];
 
@@ -10,22 +8,11 @@
     let clonedTable;
     let tableWidthValue = 0;
     let trWidth = '';
-    let bodyWidth = parseInt(window.getComputedStyle(document.querySelector('body'), null).getPropertyValue('width'));
-
-    let originalTableAnimationFromPoint;
-    let clonedTableAnimationFromPoint;
-    let newAnimationDuration;
 
     let galleryDirectoryPath = 'img/gallery/';
 
-    //let preview = new Preview();
-
-/*    const setWindowLoadListener = ()=> {
-        window.addEventListener('load', windowLoadHandler);
-    }*/
     
-    const windowLoadHandler = ()=> {
-        console.log('BILSER');
+    export const windowLoadHandler = ()=> {
         let ajax = new XMLHttpRequest();
         ajax.onreadystatechange = ()=> {
             if (ajax.readyState == 4 && ajax.status == 200) {
@@ -109,8 +96,6 @@
             '}';
         css[0].insertRule(originalTableCSSRule, 0);
         css[0].insertRule(clonedTableCSSRule, 1);
-
-        //preview.finishPreview();
     }
 /*
  * gleich nach dem ersten Durchlauf wird Listener nicht mehr gebraucht
@@ -158,7 +143,3 @@
         clonedTable.style.animationPlayState = 'running';
     }
 
-    //setWindowLoadListener();
-    windowLoadHandler();
-
-})();

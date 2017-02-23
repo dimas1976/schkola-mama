@@ -10,13 +10,6 @@
   }
 }
 
-.about_us_text {
-  font-family: Verdana, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 1.7rem;
-  color: #000;
-}
-
 //Animation Grasshooper blinzelt mit den Augen
 @-webkit-keyframes grasshopperEyesBlink {
   .eyesBlink();
@@ -53,5 +46,29 @@
 
   to {
     transform: scale(1,1);
+  }
+}
+
+@keyframes preloadCounter {
+  .counter();
+}
+
+@-moz-keyframes preloadCounter {
+  .counter();
+}
+
+@-ms-keyframes preloadCounter {
+  .counter();
+}
+
+.counter() {
+  from {
+    opacity: 1;
+    //font-size: 0rem;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
   }
 }

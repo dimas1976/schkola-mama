@@ -1,11 +1,26 @@
-#preview{
-  position: relative;
+#preloader {
+  position: fixed;
   z-index: 5;
   width: 100%;
   height: 100%;
-  background-color: rgba(203,202,202,.6);
-  h1{
-    margin: 0;
+  background-color: rgba(203,202,202,1);
+  animation: preloadCounter 5s forwards;
+
+  .counter {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    border: 2px solid red;
+    text-align: center;
+
+    span {
+/*      font-size: 20rem;
+      font-weight: bold;*/
+      margin-top: 15%;
+      opacity: 0;
+    }
   }
 }
 
