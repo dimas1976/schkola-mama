@@ -188,6 +188,16 @@
       font-size: 1.9rem;
       color: #5A84BF;
       margin-right: 3em;
+        a:link, a:visited {
+         color: #5A84BF;
+        }
+
+        a:focus {
+          color: red;
+        }
+        a:hover {
+          color: #5A84BF;
+        }
     }
   }
 }
@@ -222,7 +232,7 @@
     margin-top: 20px;
     list-style: none;
     color: #fff;
-    font-size: 1.3rem;
+    font-size: @fontSizeNormal;
   }
 }
 //-------------GALLERY-----------------------------------------------//
@@ -233,39 +243,6 @@
   padding-top: 22px;
 }
 
-#contact {
-  background-color: #ffffff;
-  height: 60%;
-  padding-top: 20px;
-
-  .row {
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  h1 {
-    text-align: center;
-  }
-
-  .form-horizontal {
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: #ffffff;
-
-    .form-group {
-      margin-bottom: 4em;
-    }
-
-    input, textarea, button {
-      border-color: #B4454B;
-    }
-
-    button {
-      margin-top: 1em;
-      color: #B4454B;
-    }
-  }
-}
 
 
 
